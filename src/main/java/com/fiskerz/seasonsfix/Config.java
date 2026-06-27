@@ -15,11 +15,17 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 // An example config class. This is not required, but it's a good idea to have one to keep your config organized.
 // Demonstrates how to use Neo's config APIs
 public class Config {
-    private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
+    public static final ModConfigSpec SPEC;
+    public static final ModConfigSpec.BooleanValue ENABLE_LOGGING;
 
-    static final ModConfigSpec SPEC = BUILDER.build();
+    static {
+        ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
-    private static boolean validateItemName(final Object obj) {
-        return obj instanceof String itemName && BuiltInRegistries.ITEM.containsKey(ResourceLocation.parse(itemName));
+        ENABLE_LOGGING = builder
+                .comment("Enable or disable logging to the console.",
+                        "If enabled may cause some additional lag")
+                .define("enableLogging", false);
+
+        SPEC = builder.build();
     }
 }

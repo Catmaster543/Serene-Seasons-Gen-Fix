@@ -1,5 +1,6 @@
 package com.fiskerz.seasonsfix.mixin;
 
+import com.fiskerz.seasonsfix.Config;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.WorldGenRegion;
@@ -21,7 +22,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  */
 @Mixin(value = Biome.class, priority = 2000)
 public class MixinBiome {
-
     @Unique
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -38,7 +38,9 @@ public class MixinBiome {
             CallbackInfoReturnable<Boolean> cir
     ) {
         if (level instanceof WorldGenRegion) {
-            LOGGER.warn("SereneSeasonGenFix: Skipping shouldFreeze in WorldGenRegion at {}", pos);
+            if (Config.ENABLE_LOGGING.get()) {
+                LOGGER.warn("SereneSeasonGenFix: Skipping shouldFreeze in WorldGenRegion at {}", pos);
+            }
             cir.setReturnValue(false);
         }
     }
