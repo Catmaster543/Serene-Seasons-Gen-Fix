@@ -1,0 +1,36 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# Run directory
+run/
+
+# Logs
+logs/
+*.log
+
+# Crash reports
+crash-reports/
+
+# Local game data
+config/
+saves/
+screenshots/
+resourcepacks/
+
+# OS files
+Thumbs.db
+.DS_Store

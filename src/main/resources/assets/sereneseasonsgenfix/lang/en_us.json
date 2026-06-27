@@ -1,0 +1,13 @@
+{
+  "itemGroup.sereneseasonsgenfix": "Example Mod Tab",
+  "block.sereneseasonsgenfix.example_block": "Example Block",
+  "item.sereneseasonsgenfix.example_item": "Example Item",
+
+  "sereneseasonsgenfix.configuration.title": "Serene_Seasons_GenFix Configs",
+  "sereneseasonsgenfix.configuration.section.sereneseasonsgenfix.common.toml": "Serene_Seasons_GenFix Configs",
+  "sereneseasonsgenfix.configuration.section.sereneseasonsgenfix.common.toml.title": "Serene_Seasons_GenFix Configs",
+  "sereneseasonsgenfix.configuration.items": "Item List",
+  "sereneseasonsgenfix.configuration.logDirtBlock": "Log Dirt Block",
+  "sereneseasonsgenfix.configuration.magicNumberIntroduction": "Magic Number Text",
+  "sereneseasonsgenfix.configuration.magicNumber": "Magic Number"
+}
