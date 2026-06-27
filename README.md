@@ -1,25 +1,25 @@
+# What does this mod do?
+This mod adds one mixin that bypasses a certain chunk in serene seasons code that uses a known problematic method, thus preventing server crashes. 
 
-Installation information
-=======
+Ussualy the error in server log will look something like this:
+```
+[Server thread/ERROR] [net.minecraft.util.thread.BlockableEventLoop/FATAL]: Error executing task on Chunk source main thread executor for minecraft:overworld
+net.minecraft.ReportedException: Exception generating new chunk
+	at TRANSFORMER...
+...at java.base/java.lang.Thread.run(Thread.java:1474) [?:?]
+Caused by: java.lang.IllegalStateException: Requested chunk unavailable during world generation
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.level.WorldGenRegion.getChunk(WorldGenRegion.java:129) ~[server-1.21.1-20240808.144430-srg.jar%23195!/:?]
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.LevelReader.getNoiseBiome(LevelReader.java:59) ~[server-1.21.1-20240808.144430-srg.jar%23195!/:?]
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.biome.BiomeManager.getBiome(BiomeManager.java:79) ~[server-1.21.1-20240808.144430-srg.jar%23195!/:?]
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.world.level.LevelReader.getBiome(LevelReader.java:39) ~[server-1.21.1-20240808.144430-srg.jar%23195!/:?]
+	at TRANSFORMER/sereneseasons@10.1.0.3/sereneseasons.season.SeasonHooks.warmEnoughToRainSeasonal(SeasonHooks.java:106) ~[SereneSeasons%20v10.1.0.3.jar%23254!/:10.1.0.3]
+	at TRANSFORMER/sereneseasons@10.1.0.3/sereneseasons.season.SeasonHooks.shouldFreezeWarmEnoughToRainHook(SeasonHooks.java:51) ~[SereneSeasons%20v10.1.0.3.jar%23254!/:10.1.0.3]
+```
+---
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## Disclaimer
+The mod is very barebones and **I do not guarantee that it will fix the issue**.
+From my testing I was able to generate over 200 000 chunks without any problems/crashes (before I made this mod the server crashed after just about 50 chunks were generated), but that does not mean it will fix the issue in your case.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
-
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
-
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
-
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+## Tip:
+I reccomend using this alongside [WorldGenFeatureFix](https://modrinth.com/mod/worldgenfeaturefix) (not sponsored or anything)
