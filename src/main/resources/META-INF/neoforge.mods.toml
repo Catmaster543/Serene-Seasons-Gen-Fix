@@ -27,10 +27,12 @@ displayName="${mod_name}" #mandatory
 
 #credits="" #optional
 
+logoFile = "icon.png"
+
 authors="Fiskerz"
 
 description='''
-This mod aims to fix crashes when generating a new chunk with serene seasons present.
+This mod aims to fix server crashes when generating a new chunk with serene seasons present.
 '''
 
 [[mixins]]

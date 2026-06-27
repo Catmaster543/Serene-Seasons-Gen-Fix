@@ -34,6 +34,6 @@ public class SereneSeasonsGenFix {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
+        LOGGER.info("SereneSeasonsGenFix has loaded correctly");
     }
 }

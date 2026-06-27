@@ -7,6 +7,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.biome.Biome;
 import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -21,6 +22,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value = Biome.class, priority = 2000)
 public class MixinBiome {
 
+    @Unique
+    private static final Logger LOGGER = LogUtils.getLogger();
+
+
     @Inject(
             method = "shouldFreeze(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Z)Z",
             at = @At("HEAD"),
@@ -33,6 +38,7 @@ public class MixinBiome {
             CallbackInfoReturnable<Boolean> cir
     ) {
         if (level instanceof WorldGenRegion) {
+            LOGGER.warn("SereneSeasonGenFix: Skipping shouldFreeze in WorldGenRegion at {}", pos);
             cir.setReturnValue(false);
         }
     }
