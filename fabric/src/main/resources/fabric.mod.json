@@ -1,0 +1,27 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${version}",
+    "name": "${mod_name}",
+    "description": "${description}",
+    "authors": [
+        "${mod_author}"
+    ],
+    "license": "${license}",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "com.fiskerz.seasonsfix.fabric.SeasonsFixFabric"
+        ]
+    },
+    "mixins": [
+        "${mod_id}.mixins.json",
+        "${mod_id}.fabric.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${fabric_loader_version}",
+        "minecraft": "${fabric_minecraft_version_range}",
+        "java": ">=${java_version}",
+        "sereneseasons": "${fabric_sereneseasons_version_range}"
+    }
+}
