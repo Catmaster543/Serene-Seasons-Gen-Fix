@@ -27,6 +27,11 @@ After which the server crashes. This is caused by a series of events, which we c
 Since I have not found any other mod do this, or any optimal solution I decided to make it myself.
 
 ---
+
+## Where can I get this mod?
+I have published the mod to [CurseForge](https://www.curseforge.com/minecraft/mc-mods/serene-seasons-gen-fix) and [Modrinth](https://modrinth.com/mod/serene-seasons-gen-fix), so choose the one you prefer and happy using!
+
+---
 ## ❗Disclaimer 
 The mod is very barebones and **I do not guarantee that it will fix the issue**.
 From my testing I was able to generate over 200 000 chunks without any problems/server crashes (before I made this mod the server crashed after just about 50 chunks were generated), but that does not mean it will fix the issue in your specific case.
